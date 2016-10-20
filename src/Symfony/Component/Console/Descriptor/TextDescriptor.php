@@ -43,8 +43,8 @@ class TextDescriptor extends Descriptor
         $this->writeText(sprintf('  <info>%s</info>%s%s%s',
             $argument->getName(),
             str_repeat(' ', $spacingWidth),
-            // + 17 = 2 spaces + <info> + </info> + 2 spaces
-            preg_replace('/\s*[\r\n]\s*/', "\n".str_repeat(' ', $totalWidth + 17), $argument->getDescription()),
+            // + 17 = 2 spaces + ... + 2 spaces
+            preg_replace('/\s*[\r\n]\s*/', "\n".str_repeat(' ', $totalWidth + 4), $argument->getDescription()),
             $default
         ), $options);
     }
@@ -80,8 +80,8 @@ class TextDescriptor extends Descriptor
         $this->writeText(sprintf('  <info>%s</info>%s%s%s%s',
             $synopsis,
             str_repeat(' ', $spacingWidth),
-            // + 17 = 2 spaces + <info> + </info> + 2 spaces
-            preg_replace('/\s*[\r\n]\s*/', "\n".str_repeat(' ', $totalWidth + 17), $option->getDescription()),
+            // + 17 = 2 spaces + ... + 2 spaces
+            preg_replace('/\s*[\r\n]\s*/', "\n".str_repeat(' ', $totalWidth + 4), $option->getDescription()),
             $default,
             $option->isArray() ? '<comment> (multiple values allowed)</comment>' : ''
         ), $options);
